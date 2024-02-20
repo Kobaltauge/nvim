@@ -8,7 +8,8 @@ return {
   config = function()
     local config = require("nvim-treesitter.configs")
     config.setup({
-      ensure_installed = {"lua", "python", "go", "yaml", "markdown_inline"},
+      auto_install = true,
+      -- ensure_installed = {"lua", "python", "go", "yaml", "markdown_inline"},
       highlight = { enable = true },
       indent = { enable = true },
     })

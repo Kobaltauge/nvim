@@ -32,8 +32,7 @@ return {
         capabilities = capabilities
       })
       lspconfig.powershell_es.setup({
-        bundle_path = 'c:/w/PowerShellEditorServices',
-        shell = 'powershell.exe',
+        bundle_path = 'C:/Users/debiecas/AppData/Local/nvim-data/mason/packages/powershell-editor-services',
         capabilities = capabilities
       })
 

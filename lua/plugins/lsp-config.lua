@@ -4,7 +4,7 @@ return {
     lazy = false,
     config = function()
       require("mason").setup({
-      PATH = "prepend",
+      PATH = "append",
       })
     end,
   },

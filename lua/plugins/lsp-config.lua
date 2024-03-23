@@ -31,6 +31,9 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
+      lspconfig.pyright.setup({
+        capabilities = capabilities
+      })
       lspconfig.powershell_es.setup({
         bundle_path = 'C:/Users/debiecas/AppData/Local/nvim-data/mason/packages/powershell-editor-services',
         capabilities = capabilities

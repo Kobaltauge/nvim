@@ -22,6 +22,20 @@ else
 	vim.opt.rtp:prepend(lazypath)
 	require("lazy").setup("plugins")
 
+  client = vim.lsp.start({
+  name = 'ahk-lsp',
+  cmd = { "D:/portable/Autohotkey2/AutoHotkey64.exe", "d:/git/ahk-lsp/main.ahk" }
+  -- cmd = { 'D:\\git\\ahk-lsp\\ahk-lsp.exe' }
+  -- root_dir = {"d:\\git\\ahk-lsp"}
+  -- root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1])
+  })
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "autohotkey",
+    callback = function()
+      vim.lsp.buf_attach_client(0, client)
+    end,
+  })
+
 	-- Set highlight on search
 	vim.o.hlsearch = false
 

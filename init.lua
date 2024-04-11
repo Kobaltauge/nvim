@@ -3,7 +3,8 @@ if (vim.g.vscode) then
 	-- VSCode extension
 	require("vim-options-vsc")
 else
-	require("vim-options")
+  require("vim-options")
+
 
 	-- [[ Install `lazy.nvim` plugin manager ]]
 	--    https://github.com/folke/lazy.nvim
@@ -22,17 +23,18 @@ else
 	vim.opt.rtp:prepend(lazypath)
 	require("lazy").setup("plugins")
 
-  client = vim.lsp.start({
+  Client = vim.lsp.start({
   name = 'ahk-lsp',
-  cmd = { "D:/portable/Autohotkey2/AutoHotkey64.exe", "d:/git/ahk-lsp/main.ahk" }
-  -- cmd = { 'D:\\git\\ahk-lsp\\ahk-lsp.exe' }
-  -- root_dir = {"d:\\git\\ahk-lsp"}
-  -- root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1])
+  cmd = { "C:/Daten/programmier/AutoHotkey_2/AutoHotkey64.exe", "C:/Daten/programmier/ahk-lsp/main.ahk"},
+  -- cmd = { "C:/Daten/programmier/ahk-lsp/main.exe"},
+  -- cmd = { 'D:\\git\\ahk-lsp\\ahk-lsp.exe' },
+  -- root_dir = { "C:/Daten/programmier/ahk-lsp" }
+  root_dir = vim.fs.dirname(vim.fs.find({'main.ahk'}, { upward = true })[1]),
   })
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "autohotkey",
     callback = function()
-      vim.lsp.buf_attach_client(0, client)
+      vim.lsp.buf_attach_client(0, Client)
     end,
   })
 

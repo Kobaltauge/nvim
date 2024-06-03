@@ -3,7 +3,7 @@ if (vim.g.vscode) then
 	require("vim-options-vsc")
 else
   require("vim-options")
-
+  vim.loader.enable()
 
 	-- [[ Install `lazy.nvim` plugin manager ]]
 	--    https://github.com/folke/lazy.nvim
@@ -22,38 +22,38 @@ else
 	vim.opt.rtp:prepend(lazypath)
 	require("lazy").setup("plugins")
 
-  local launch_ahklsp = function()
-	  local autocmd
-    local config = {
-    name = 'ahk-lsp',
-    cmd = { "AutoHotkey64.exe", "c:/git/ahk-lsp/ahk-lsp.ahk"},
-    -- cmd = { "C:/Daten/programmier/AutoHotkey_2/AutoHotkey64.exe", "C:/Daten/programmier/ahk-lsp/main.ahk"},
-    -- cmd = { "C:/Daten/programmier/ahk-lsp/main.exe"},
-    -- cmd = { 'c:\\tools\\ahk-lsp.exe' },
-    -- root_dir = { "C:/Daten/programmier/ahk-lsp" }
-    root_dir = vim.fs.dirname(vim.fs.find({'main.ahk'}, { upward = true })[1]),
-    capabilities = vim.lsp.protocol.make_client_capabilities(),
-    }
+  -- local launch_ahklsp = function()
+	  -- local autocmd
+  --   local config = {
+  --   name = 'ahk-lsp',
+  --   cmd = { "AutoHotkey64.exe", "c:/git/ahk-lsp/ahk-lsp.ahk"},
+  --   -- cmd = { "C:/Daten/programmier/AutoHotkey_2/AutoHotkey64.exe", "C:/Daten/programmier/ahk-lsp/main.ahk"},
+  --   -- cmd = { "C:/Daten/programmier/ahk-lsp/main.exe"},
+  --   -- cmd = { 'c:\\tools\\ahk-lsp.exe' },
+  --   -- root_dir = { "C:/Daten/programmier/ahk-lsp" }
+  --   root_dir = vim.fs.dirname(vim.fs.find({'main.ahk'}, { upward = true })[1]),
+  --   capabilities = vim.lsp.protocol.make_client_capabilities(),
+  --   }
 
-    config.on_init = function(client, results)
-	    local buf_attach = function()
-		    vim.lsp.buf_attach_client(0, client.id)
-      end
+  --   config.on_init = function(client, results)
+	    -- local buf_attach = function()
+		    -- vim.lsp.buf_attach_client(0, client.id)
+  --     end
 
-      autocmd = vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-        pattern = 'D:/Programmier/autohotkey/*.ahk',
-        callback = buf_attach
-      })
-      buf_attach()
-    end
+  --     autocmd = vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  --       pattern = 'D:/Programmier/autohotkey/*.ahk',
+  --       callback = buf_attach
+  --     })
+  --     buf_attach()
+  --   end
 
-    vim.lsp.start_client(config)
-  end
+  --   vim.lsp.start_client(config)
+  -- end
 
-  vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-    pattern = 'D:/Programmier/autohotkey/*.ahk',
-    callback = launch_ahklsp
-  })
+  -- vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  --   pattern = 'D:/Programmier/autohotkey/*.ahk',
+  --   callback = launch_ahklsp
+  -- })
 
 	-- vim.keymap.set('n', 'F12', '!cmd D:\\portable\\Autohotkey2\\Compiler\\Ahk2Exe.exe /in d:\\git\\ahk-lsp\\main.ahk /out c:\\tools\\ahk-lsp.exe', { expr = true, silent = true })
 	-- vim.keymap.set('n', "<F12>", ":silent ! d:/git/ahk-lsp/build.cmd > output.log 2>&1<CR>", { silent = true })
@@ -70,7 +70,7 @@ else
 	-- Sync clipboard between OS and Neovim.
 	--  Remove this option if you want your OS clipboard to remain independent.
 	--  See `:help 'clipboard'`
-	vim.o.clipboard = 'unnamedplus'
+	-- vim.o.clipboard = 'unnamedplus'
 
 	-- Enable break indent
 	vim.o.breakindent = true

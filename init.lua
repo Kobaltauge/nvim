@@ -2,7 +2,7 @@ if (vim.g.vscode) then
   -- VSCode extension
   require("vim-options-vsc")
 else
-    
+
   require("vim-options")
   vim.loader.enable()
 

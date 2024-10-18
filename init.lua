@@ -92,4 +92,6 @@ else
     group = highlight_group,
     pattern = '*',
   })
+
 end
+

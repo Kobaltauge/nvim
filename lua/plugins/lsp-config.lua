@@ -29,7 +29,7 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
-      lspconfig.pyright.setup({
+      lspconfig.snyk.setup({
         capabilities = capabilities
       })
       lspconfig.powershell_es.setup({

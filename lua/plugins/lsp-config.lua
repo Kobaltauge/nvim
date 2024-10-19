@@ -3,7 +3,9 @@ return {
     "williamboman/mason.nvim",
     lazy = false,
     config = function()
-      require("mason").setup()
+      require("mason").setup({
+        PATH = "prepend" -- "skip" seems to cause the spawning error
+      })
     end,
   },
   {
@@ -29,7 +31,7 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
-      lspconfig.snyk.setup({
+      lspconfig.jedi_language_server.setup({
         capabilities = capabilities
       })
       lspconfig.powershell_es.setup({

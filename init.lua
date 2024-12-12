@@ -93,5 +93,11 @@ else
     pattern = '*',
   })
 
+  -- rainbow csv filetype
+  vim.cmd([[
+    autocmd FileType csv setlocal expandtab
+    autocmd BufNewFile,BufRead *.csv set filetype=csv_semicolon
+  ]])
+
 end
 

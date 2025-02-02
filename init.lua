@@ -26,8 +26,9 @@ else
   -- Set highlight on search
   vim.o.hlsearch = false
 
-  -- Make line numbers default
+  -- Make relative line numbers default
   vim.wo.number = true
+  vim.wo.relativenumber = true
 
   -- Enable mouse mode
   vim.o.mouse = 'a'

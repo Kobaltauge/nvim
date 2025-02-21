@@ -6,6 +6,9 @@ else
   require("vim-options")
   vim.loader.enable()
 
+  if (vim.g.nvy) then
+    vim.o.guifont="Cousine Nerd Font"
+  end
   -- [[ Install `lazy.nvim` plugin manager ]]
   --    https://github.com/folke/lazy.nvim
   --    `:help lazy.nvim.txt` for more info

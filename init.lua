@@ -2,12 +2,12 @@ if (vim.g.vscode) then
   -- VSCode extension
   require("vim-options-vsc")
 else
-
   require("vim-options")
   vim.loader.enable()
 
   if (vim.g.nvy) then
-    vim.o.guifont="Cousine Nerd Font"
+    vim.o.guifont="Cousine Nerd Font:h10"
+    vim.cmd('cd %:p:h')
   end
   -- [[ Install `lazy.nvim` plugin manager ]]
   --    https://github.com/folke/lazy.nvim
@@ -25,6 +25,10 @@ else
   end
   vim.opt.rtp:prepend(lazypath)
   require("lazy").setup("plugins")
+
+  -- checkhealth fixes
+  vim.g.loaded_python3_provider = 0
+  vim.g.loaded_perl_provider = 0
 
   -- Set highlight on search
   vim.o.hlsearch = false

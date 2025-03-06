@@ -7,6 +7,9 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("telescope").setup({
+        defaults = {
+        file_ignore_patterns = {"yarn%.lock", "package%-lock%.json"}
+        },
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),

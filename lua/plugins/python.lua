@@ -1,9 +1,9 @@
 return {
   -- DAP core dependencies
-  { import = "lazyvim.plugins.extras.dap.core" },
+  -- { import = "lazyvim.plugins.extras.dap.core" },
 
   -- activate LazyVim's python extras
-  { import = "lazyvim.plugins.extras.lang.python" },
+  -- { import = "lazyvim.plugins.extras.lang.python" },
   --
   -- disable venv because it's I'm handling this outside of nvim
   { "linux-cultist/venv-selector.nvim", enabled = false },

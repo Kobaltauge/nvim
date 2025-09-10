@@ -3,9 +3,11 @@ return {
     "akinsho/toggleterm.nvim",
     opts = {
       size = 20,
-      open_mapping = [[<leader>t]],
+      open_mapping = [[<c-t>]],
       direction = "horizontal",
     },
     version = "*",
   },
 }
+
+

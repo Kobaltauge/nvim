@@ -154,6 +154,10 @@ vim.keymap.set('n', '<A-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<A-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<A-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Terminal execution for python
+vim.keymap.set('n', '<C-r>', ':sp <CR> :term python % <CR>', { desc = 'Executes actual buffer with python' })
+vim.keymap.set('n', '<C-w>', ':bd!<CR>', { desc = 'Close teminal' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

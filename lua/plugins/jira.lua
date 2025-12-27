@@ -1,5 +1,6 @@
 return
 {
+  -- https://github.com/letieu/jira.nvim
   "letieu/jira.nvim",
   opts = {
     -- Your setup options...

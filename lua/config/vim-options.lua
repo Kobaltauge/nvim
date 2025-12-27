@@ -229,3 +229,33 @@ require("lazy").setup({
     },
   },
 })
+
+require('jira').setup({
+  -- Jira connection settings
+  jira = {
+    base = "https://your-domain.atlassian.net", -- Base URL of your Jira instance
+    email = "your-email@example.com",           -- Your Jira email
+    token = "your-api-token",                   -- Your Jira API token
+    limit = 500,                                -- Global limit of tasks per view
+  },
+
+  -- Saved JQL queries for the JQL tab
+  -- Use %s as a placeholder for the project key
+  queries = {
+    ["Backlog"] = "project = '%s' AND (sprint is EMPTY OR sprint not in openSprints()) AND statusCategory != Done ORDER BY Rank ASC",
+    ["My Tasks"] = "assignee = currentUser() AND statusCategory != Done ORDER BY updated DESC",
+    ["task"] = "project = '%s' ORDER BY Rank ASC",
+  },
+
+  -- Project-specific overrides
+  -- Still think about this config, maybe not good enough
+  projects = {
+    ["DEV"] = {
+      story_point_field = "customfield_10035",      -- Custom field ID for story points
+      custom_fields = { -- Custom field to display in markdown view
+        { key = "customfield_10016", label = "Acceptance Criteria" }
+      },
+    }
+  }
+})
+
